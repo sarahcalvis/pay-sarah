@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import Home from './screens/Home.js';
+import Footer from './components/Footer.js';
+import Grid from '@material-ui/core/Grid';
 import './App.css';
+import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import theme from './theme';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Grid>
+              <Grid item>
+                <Home />
+              </Grid>
+              <Grid item
+                container
+                direction="row"
+                justify="center"
+                alignItems="flex-end">
+                <Footer position='fixed' left='0' bottom='0'/>
+              </Grid>
+            </Grid>
+          </ThemeProvider>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
