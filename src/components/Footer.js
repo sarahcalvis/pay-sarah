@@ -31,8 +31,8 @@ class Home extends React.Component {
     return (
       <div className={classes.heroContent}>
         <Container maxWidth="sm" className={classes.footer}>
-          <Typography>
-            Footer
+          <Typography align='center'>
+            Disclaimer: I have not tried this because I am terrified they will slap me with a bunch of fees.
           </Typography>
         </Container>
       </div>
