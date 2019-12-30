@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Home from './screens/Home.js';
 import Footer from './components/Footer.js';
-import Grid from '@material-ui/core/Grid';
 import './App.css';
 import { ThemeProvider, CssBaseline } from '@material-ui/core';
 import theme from './theme';
@@ -14,18 +13,10 @@ class App extends React.Component {
         <BrowserRouter>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Grid>
-              <Grid item>
-                <Home />
-              </Grid>
-              <Grid item
-                container
-                direction="row"
-                justify="center"
-                alignItems="flex-end">
-                <Footer position='fixed' left='0' bottom='0'/>
-              </Grid>
-            </Grid>
+              <div marginBottom="60px">
+              <Home />
+              </div>
+              <Footer position='fixed' left='0' bottom='0'/>
           </ThemeProvider>
         </BrowserRouter>
       </div>

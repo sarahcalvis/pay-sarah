@@ -22,6 +22,12 @@ const styles = theme => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
+    position: 'fixed',
+    textAlign: "center",
+    padding: "20px",
+    left: "0",
+    bottom: "0",
+    width: "100%",
   },
 });
 
@@ -29,13 +35,14 @@ class Home extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm" className={classes.footer}>
-          <Typography align='center'>
-            Disclaimer: I have not tried this because I am terrified they will slap me with a bunch of fees.
-          </Typography>
-        </Container>
-      </div>
+      <footer className={classes.footer}>
+        <Typography variant="h6" align="center" gutterBottom>
+          Not-Yet-Sticky Footer
+        </Typography>
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          Disclaimer: I have not tried this because I am terrified they will slap me with a bunch of fees.
+        </Typography>
+      </footer>  
     );
   }
 }
