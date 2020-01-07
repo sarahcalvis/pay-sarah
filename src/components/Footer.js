@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/styles';
 
 const styles = theme => ({
@@ -22,10 +21,10 @@ const styles = theme => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
-    position: 'fixed',
+    position: 'relative',
     textAlign: "center",
-    padding: "20px",
     left: "0",
+    right: "0",
     bottom: "0",
     width: "100%",
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Home from './screens/Home.js';
+import Routes from "./components/Routes.js"
+import Nav from './components/Nav.js';
 import Footer from './components/Footer.js';
 import './App.css';
 import { ThemeProvider, CssBaseline } from '@material-ui/core';
@@ -13,10 +14,9 @@ class App extends React.Component {
         <BrowserRouter>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-              <div marginBottom="60px">
-              <Home />
-              </div>
-              <Footer position='fixed' left='0' bottom='0'/>
+            <Nav />
+            <Routes />
+            <Footer position='fixed' left='0' bottom='0' />
           </ThemeProvider>
         </BrowserRouter>
       </div>
