@@ -37,7 +37,7 @@ class Home extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Work in progress
+            Work in progress. Honestly they are asking for a lot of info and I stopped because I am not a real business. Trying Plaid now.
           </Typography>
         </Container>
       </div>

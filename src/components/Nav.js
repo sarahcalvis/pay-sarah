@@ -33,6 +33,7 @@ export default function NavBar() {
           <Tab className={classes.tab} label="Home" to='/' component={Link} />
           <Tab className={classes.tab} label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
           <Tab className={classes.tab} label="Stripe" to='/stripe' component={Link} />
+          <Tab className={classes.tab} label="Plaid" to='/plaid' component={Link} />
         </Tabs>
       </AppBar>
     </React.Fragment>

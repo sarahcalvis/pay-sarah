@@ -37,7 +37,22 @@ class Home extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Sarah's payment processing experiment
+            Sarah's payment processing experiment.
+          </Typography>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom>
+            The fundamental challenge
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph>
+            We need to not just accept payments, but also 1. allow CFs to input payment information. 2. potentially create multiple accounts for one CF. 3. track and manage the size of the payments.
           </Typography>
         </Container>
       </div>
