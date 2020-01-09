@@ -1,10 +1,9 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import $ from 'jquery';
 import { withStyles } from '@material-ui/styles';
+import PlaidLink from 'react-plaid-link'
 
 const styles = theme => ({
   heroContent: {
@@ -28,44 +27,15 @@ class Plaid extends React.Component {
 
     }
   }
-  
-  connectWithPlaid() {
-    var products = '<%= PLAID_PRODUCTS %>'.split(',');
-    var handler = Plaid.create({
-      apiVersion: 'v2',
-      clientName: 'Plaid Quickstart',
-      env: '<%= PLAID_ENV %>',
-      product: products,
-      key: '<%= PLAID_PUBLIC_KEY %>',
-      countryCodes: '<%= PLAID_COUNTRY_CODES %>'.split(','),
-      // webhook: 'https://your-domain.tld/plaid-webhook',
-      onSuccess: function(public_token) {
-        $.post('/get_access_token', {
-          public_token: public_token
-        }, function(data) {
-          $('#container').fadeOut('fast', function() {
-            $('#item_id').text(data.item_id);
-            $('#access_token').text(data.access_token);
-            $('#intro').hide();
-            $('#app, #steps').fadeIn('slow');
-          });
-        });
-      },
-    });
-    var accessToken = this.access_token;
-    if (accessToken != null && accessToken != '') {
-      $.post('/set_access_token', {
-        access_token: accessToken
-      }, function(data) {
-        $('#container').fadeOut('fast', function() {
-          $('#item_id').text(data.item_id);
-          $('#access_token').text(accessToken);
-          $('#intro').hide();
-          $('#app, #steps').fadeIn('slow');
-        });
-      });
-    }
+
+  handleOnSuccess(token, metadata) {
+    // send token to client server
   }
+
+  handleOnExit() {
+    // handle the case when your user exits Link
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -92,16 +62,15 @@ class Plaid extends React.Component {
             justify="center"
             alignItems="center"
           >
-          <Button 
-            id="link-btn" 
-            className={classes.heroButton}
-            color="primary"
-            variant="contained"
-            size="large"
-            align="center"
-            onClick="this.connectWithPlaid">
-            Connect with Plaid
-          </Button>
+          <PlaidLink
+            clientName="Your app name"
+            env="sandbox"
+            product={["auth", "transactions"]}
+            publicKey="2eb18bd93120580e6e8713cbf07ee4"
+            onExit={this.handleOnExit}
+            onSuccess={this.handleOnSuccess}>
+            Open Link and connect your bank!
+          </PlaidLink>
           </Grid>
         </Container>
       </div>

@@ -12,28 +12,18 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
 
   },
-  tabs: {
-  },
-  tab: {
-  },
-  loginTab: {
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
 }));
 
 export default function NavBar() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <AppBar className={classes.appBar} title="WSAJ">
-        <Tabs className={classes.tabs}>
-          <Tab className={classes.tab} label="Home" to='/' component={Link} />
-          <Tab className={classes.tab} label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
-          <Tab className={classes.tab} label="Stripe" to='/stripe' component={Link} />
-          <Tab className={classes.tab} label="Plaid" to='/plaid' component={Link} />
+      <AppBar className={classes.appBar}>
+        <Tabs >
+          <Tab label="Home" to='/' component={Link} />
+          <Tab label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
+          <Tab label="Stripe" to='/stripe' component={Link} />
+          <Tab label="Plaid" to='/plaid' component={Link} />
         </Tabs>
       </AppBar>
     </React.Fragment>
