@@ -13,12 +13,13 @@ const styles = theme => ({
 
   },
 });
-class Nav extends Component {
+class Nav extends React.Component {
   state = {
-    selectedTab: 'shop-setup'
+    selectedTab: 'home'
   }
 
   handleTabClick = (event, value) => {
+    console.log(value);
     this.setState({ selectedTab: value });
   }
   render() {
@@ -26,11 +27,11 @@ class Nav extends Component {
     return (
       <React.Fragment>
         <AppBar className={classes.appBar}>
-          <Tabs >
-            <Tab label="Home" to='/' component={Link} />
-            <Tab label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
-            <Tab label="Stripe" to='/stripe' component={Link} />
-            <Tab label="Plaid" to='/plaid' component={Link} />
+          <Tabs value={this.state.selectedTab} onChange={this.handleTabClick} >
+            <Tab value='home'  label="Home" to='/' component={Link} />
+            <Tab value='paypal' label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
+            <Tab value='stripe' label="Stripe" to='/stripe' component={Link} />
+            <Tab value='plaid' label="Plaid" to='/plaid' component={Link} />
           </Tabs>
         </AppBar>
       </React.Fragment>
