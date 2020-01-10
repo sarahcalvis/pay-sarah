@@ -19,7 +19,6 @@ class Nav extends React.Component {
   }
 
   handleTabClick = (event, value) => {
-    console.log(value);
     this.setState({ selectedTab: value });
   }
   render() {

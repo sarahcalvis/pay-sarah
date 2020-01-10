@@ -58,7 +58,7 @@ class Home extends React.Component {
                 align="center"
                 aria-label="outlined primary button group"
 
-                type="image"
+                type="submit"
                 src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
                 border="0" name="submit" title="PayPal - The safer, easier way to pay online!"
                 alt="Donate with PayPal button">

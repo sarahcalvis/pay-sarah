@@ -62,15 +62,15 @@ class Plaid extends React.Component {
             justify="center"
             alignItems="center"
           >
-          <PlaidLink
-            clientName="Your app name"
-            env="sandbox"
-            product={["auth", "transactions"]}
-            publicKey="2eb18bd93120580e6e8713cbf07ee4"
-            onExit={this.handleOnExit}
-            onSuccess={this.handleOnSuccess}>
-            Open Link and connect your bank!
-          </PlaidLink>
+            <PlaidLink
+              clientName="Your app name"
+              env="sandbox"
+              product={["auth", "transactions"]}
+              publicKey="2eb18bd93120580e6e8713cbf07ee4"
+              onExit={this.handleOnExit}
+              onSuccess={this.handleOnSuccess}>
+              Open Link and connect your bank!
+            </PlaidLink>
           </Grid>
         </Container>
       </div>
