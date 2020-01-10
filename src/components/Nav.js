@@ -14,13 +14,27 @@ const styles = theme => ({
   },
 });
 class Nav extends React.Component {
-  state = {
-    selectedTab: 'home'
+  constructor(props) {
+    super();
+    
+    var initialPage = localStorage.getItem( 'selectedTab' ) || 'home';
+
+    this.state = {
+      selectedTab: initialPage
+    }
   }
 
+  componentWillUnmount() {
+    localStorage.setItem( 'selectedTab', 'home' );
+  }
+  
+
   handleTabClick = (event, value) => {
+    localStorage.setItem( 'selectedTab', value );
     this.setState({ selectedTab: value });
   }
+
+
   render() {
     const { classes } = this.props;
     return (
@@ -28,7 +42,7 @@ class Nav extends React.Component {
         <AppBar className={classes.appBar}>
           <Tabs value={this.state.selectedTab} onChange={this.handleTabClick} >
             <Tab value='home'  label="Home" to='/' component={Link} />
-            <Tab value='paypal' label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
+            <Tab value='paypal-donate-button' label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
             <Tab value='stripe' label="Stripe" to='/stripe' component={Link} />
             <Tab value='plaid' label="Plaid" to='/plaid' component={Link} />
           </Tabs>
