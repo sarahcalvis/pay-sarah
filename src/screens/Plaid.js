@@ -54,7 +54,7 @@ class Plaid extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Click the button below to open a list of Institutions. After you select one, you’ll be guided through an authentication process. Upon completion, a public_token will be passed back to the server and exchanged for access_token.
+            Plaid Link connects to an actual bank account. We can use it to do direct bank withdrawals. I think it is common to integrate Plaid with Stripe.
           </Typography>
           <Grid
             container
@@ -71,6 +71,13 @@ class Plaid extends React.Component {
               onSuccess={this.handleOnSuccess}>
               Open Link and connect your bank!
             </PlaidLink>
+            <Typography
+              variant="h5"
+              align="center"
+              color="textSecondary"
+              paragraph>
+              We can add handlers to the above Plaid Link such that once the user is connected to a bank, we can actually make the donation
+            </Typography>
           </Grid>
         </Container>
       </div>

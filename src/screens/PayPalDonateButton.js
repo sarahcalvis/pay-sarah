@@ -38,7 +38,7 @@ class Home extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Click the button to donate your desired amount of money to a PayPal account I made. I don't think this is a viable option for Giving Tree because we can neither see nor limit the amount the user chooses to donate. We need to do something more advanced.
+            Click the button to donate your desired amount of money to a PayPal account I made. This may not be a viable option for Giving Tree because we can neither see nor limit the amount the user chooses to donate. However, I need to look and see if PayPal has a button option that allows the site to specify the amount. If so, we can validate the amount and save it to the database before the user presses the button.
           </Typography>
           <Grid
             container
