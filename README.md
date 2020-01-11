@@ -1,8 +1,20 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Making a Stripe Payment
+
+Run
+### `npm start`
+and
+### `node server`
+in two different project directories
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `node server`
+
+Start the Stripe Server to make test payments
 
 ### `npm start`
 

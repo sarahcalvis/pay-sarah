@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/styles';
-import {Elements, StripeProvider} from 'react-stripe-elements';
 import StripePaymentForm from '../components/StripePaymentForm.js';
 
 const styles = theme => ({
@@ -42,17 +41,20 @@ class Home extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Refer to 
+            Refer to
             <Link href="https://stripe.com/docs/testing" >
-               Stripe Testing Information 
+              Stripe Testing Information
             </Link>
-             to try this out please how do I make spaces between the link and the words help me
+            to try this out
           </Typography>
-          <StripeProvider apiKey="pk_test_y69Z0N4wM6r6dyy6Sh4kcrWH00bivSnSRM">
-            <Elements>
-              <StripePaymentForm />
-            </Elements>
-          </StripeProvider>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph>
+            please how do I make spaces between the link and the words help me
+          </Typography>
+          <StripePaymentForm />
         </Container>
       </div>
     );
