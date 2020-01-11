@@ -1,7 +1,12 @@
+// https://stripe.com/docs/recipes/elements-react
+
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/styles';
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import StripePaymentForm from '../components/StripePaymentForm.js';
 
 const styles = theme => ({
   heroContent: {
@@ -37,8 +42,17 @@ class Home extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Work in progress. Honestly they are asking for a lot of info and I stopped because I am not a real business. Trying Plaid now.
+            Refer to 
+            <Link href="https://stripe.com/docs/testing" >
+               Stripe Testing Information 
+            </Link>
+             to try this out please how do I make spaces between the link and the words help me
           </Typography>
+          <StripeProvider apiKey="pk_test_y69Z0N4wM6r6dyy6Sh4kcrWH00bivSnSRM">
+            <Elements>
+              <StripePaymentForm />
+            </Elements>
+          </StripeProvider>
         </Container>
       </div>
     );

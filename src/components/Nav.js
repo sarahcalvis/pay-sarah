@@ -15,9 +15,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function SimpleTabs() {
+export default function SimpleTabs(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  
+  var pages = ['home', 'paypal-donate-button', 'stripe', 'plaid'];
+  var page = window.location.href
+  var val = 'home';
+  for (var i = 0; i < pages.length; i++) {
+    if (page.includes(pages[i])) { val=pages[i]; }
+  }
+
+  const [value, setValue] = React.useState(val);
 
   const handleTabClick = (event, newValue) => {
     setValue(newValue);
