@@ -7,13 +7,13 @@ const stripe = require("stripe")("sk_test_avCwuzIvg45JxkjItTyqRGH600JEoryzyP");
 app.use(require("body-parser").text());
 
 app.post("/charge", async (req, res) => {
-  console.log(req.amount);
+  console.log(req.body);
   try {
     let {status} = await stripe.charges.create({
-      amount: 20000,
+      amount:  req.body.split(' amount: ')[1],
       currency: "usd",
       description: "An example charge",
-      source: req.body
+      source: req.body.split(' amount: ')[0]
     });
 
     res.json({status});

@@ -17,15 +17,14 @@ class StripePaymentForm extends React.Component {
   }
 
   async submit(ev) {
-    var i = parseInt(this.state.amount);
+    var i = parseInt(this.state.amount) * 100;
     console.log(i);
     /// payment request
     let { token } = await this.props.stripe.createToken({ name: "Jenny"});
     let response = await fetch("/charge", {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
-      body: token.id,
-      amount: i
+      body: token.id + ' amount: ' + i,
     });
 
     if (response.ok) { console.log(response) }
