@@ -1,4 +1,5 @@
 // Stripe Server
+// TODO: host this on Firebase
 
 const app = require("express")();
 const stripe = require("stripe")("sk_test_avCwuzIvg45JxkjItTyqRGH600JEoryzyP");

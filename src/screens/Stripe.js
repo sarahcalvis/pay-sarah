@@ -8,6 +8,12 @@ import { withStyles } from '@material-ui/styles';
 import StripePaymentForm from '../components/StripePaymentForm.js';
 
 const styles = theme => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
+  },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 0),
