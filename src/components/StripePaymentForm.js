@@ -11,24 +11,27 @@ class StripePaymentForm extends React.Component {
     this.state = {
       complete: false,
       open: false,
-      amount: ''
+      amount: 0
     };
     this.submit = this.submit.bind(this);
   }
 
   async submit(ev) {
-    console.log(this.state.amount)
-    let { token } = await this.props.stripe.createToken({ name: "Name" });
+    var i = parseInt(this.state.amount);
+    console.log(i);
+    /// payment request
+    let { token } = await this.props.stripe.createToken({ name: "Jenny"});
     let response = await fetch("/charge", {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
-      body: token.id
+      body: token.id,
+      amount: i
     });
 
-    if (response.ok) console.log("Purchase Complete!");
-    else { console.log(response) }
+    if (response.ok) { console.log(response) }
     if (response.ok) this.setState({ complete: true });
   }
+
 
   render() {
     if (this.state.complete) {
@@ -46,7 +49,7 @@ class StripePaymentForm extends React.Component {
           Enter your payment information below to complete the purchase. Not working? Start the server 😉
         </Typography>
 
-        <CardElement />
+        <CardElement data-amount={this.state.amount} />
         <Grid
           container
           direction="row"
@@ -54,11 +57,11 @@ class StripePaymentForm extends React.Component {
           alignItems="center"
         >
           <TextField
-          value={this.state.amount}
-          onInput={e => this.setState({amount: e.target.value})}
-          id="outlined-basic"
-          label="Donation Amount"
-          variant="outlined" />
+            value={this.state.amount}
+            onInput={e => this.setState({ amount: e.target.value })}
+            id="outlined-basic"
+            label="Donation Amount"
+            variant="outlined" />
         </Grid>
         <Grid
           container
