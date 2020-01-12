@@ -45,6 +45,21 @@ class Home extends React.Component {
             align="center"
             color="textPrimary"
             gutterBottom>
+            The Conclusion (At the top because it's important)
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph>
+            Stripe works! I'm leaving my PayPal and Plaid fun in there for posterity.
+          </Typography>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom>
             The fundamental challenge
           </Typography>
           <Typography

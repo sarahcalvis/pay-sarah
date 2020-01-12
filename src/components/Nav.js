@@ -35,8 +35,8 @@ export default function SimpleTabs(props) {
       <AppBar className={classes.appBar}>
         <Tabs value={value} onChange={handleTabClick} >
           <Tab value='home' label="Home" to='/' component={Link} />
-          <Tab value='paypal-donate-button' label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
           <Tab value='stripe' label="Stripe" to='/stripe' component={Link} />
+          <Tab value='paypal-donate-button' label="PayPal Donate Button" to='/paypal-donate-button' component={Link} />
           <Tab value='plaid' label="Plaid" to='/plaid' component={Link} />
         </Tabs>
       </AppBar>
