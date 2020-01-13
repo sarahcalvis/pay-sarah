@@ -5,8 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/styles';
-import StripePaymentForm from '../components/StripePaymentForm.js';
+import Snack from '../components/Snack.js';
 import TextField from '@material-ui/core/TextField';
+import { CardElement, injectStripe } from 'react-stripe-elements';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
@@ -30,18 +32,34 @@ const styles = theme => ({
   },
 });
 
-class Home extends React.Component {
+class Stripe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      complete: false,
       amount: 0
     };
+    this.submit=this.submit.bind(this);
+  }
+
+  async submit(ev) {
+    var i = parseInt(this.state.amount) * 100;
+    /// payment request
+    let { token } = await this.props.stripe.createToken({ name: "Giving Tree Donor"});
+    let response = await fetch("/charge", {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: token.id + ' amount: ' + i,
+    });
+
+    if (response.ok) { console.log(response) }
+    if (response.ok) this.setState({ complete: true });
   }
 
   render() {
-    const { classes } = this.props;
+    //const { classes } = this.props;
     return (
-      <div className={classes.heroContent}>
+      <div /*className={classes.heroContent}*/>
         <Container maxWidth="sm">
           <Typography
             component="h1"
@@ -76,24 +94,46 @@ class Home extends React.Component {
             paragraph>
             Enter your payment information below to complete the purchase. Not working? Start the server 😉
           </Typography>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            <TextField
-              value={this.state.amount}
-              onInput={e => this.setState({ amount: e.target.value })}
-              id="outlined-basic"
-              label="Donation Amount"
-              variant="outlined" />
-          </Grid>
-          <StripePaymentForm amount={this.state.amount} />
+          {this.state.complete ?
+            <Snack /> :
+            <div>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <TextField
+                  value={this.state.amount}
+                  onInput={e => this.setState({ amount: e.target.value })}
+                  id="outlined-basic"
+                  label="Donation Amount"
+                  variant="outlined" />
+              </Grid>
+              <CardElement />
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="large"
+                  align="center"
+                  aria-label="outlined primary button group"
+                  type="submit"
+                  onClick={this.submit}>
+                  Purchase
+            </Button>
+              </Grid>
+            </div>
+          }
         </Container>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Home);
+export default injectStripe(Stripe);

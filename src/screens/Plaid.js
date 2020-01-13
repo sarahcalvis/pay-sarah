@@ -54,7 +54,7 @@ class Plaid extends React.Component {
             align="center"
             color="textSecondary"
             paragraph>
-            Plaid Link connects to an actual bank account. We can use it to do direct bank withdrawals. I think it is common to integrate Plaid with Stripe.
+            This is useless ignore it. Plaid Link connects to an actual bank account. We can use it to do direct bank withdrawals. I think it is common to integrate Plaid with Stripe.
           </Typography>
           <Grid
             container
