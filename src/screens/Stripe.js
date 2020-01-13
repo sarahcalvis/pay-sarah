@@ -4,6 +4,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/styles';
 import Snack from '../components/Snack.js';
 import TextField from '@material-ui/core/TextField';
@@ -97,6 +98,14 @@ class Stripe extends React.Component {
           {this.state.complete ?
             <Snack /> :
             <div>
+            <Paper elevation={3} border={3}>
+            <Typography
+              variant="h5"
+              align="center"
+              color="textPrimary"
+              gutterBottom>
+              Make a Donation
+            </Typography>
               <Grid
                 container
                 direction="row"
@@ -128,6 +137,7 @@ class Stripe extends React.Component {
                   Purchase
             </Button>
               </Grid>
+              </Paper>
             </div>
           }
         </Container>
