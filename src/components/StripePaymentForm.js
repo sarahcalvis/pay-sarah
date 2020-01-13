@@ -1,26 +1,23 @@
 import React from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Snack from './Snack.js';
-import TextField from '@material-ui/core/TextField';
 class StripePaymentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       complete: false,
       open: false,
-      amount: 0
+      amount: props.amount
     };
     this.submit = this.submit.bind(this);
   }
 
   async submit(ev) {
     var i = parseInt(this.state.amount) * 100;
-    console.log(i);
     /// payment request
-    let { token } = await this.props.stripe.createToken({ name: "Jenny"});
+    let { token } = await this.props.stripe.createToken({ name: "Giving Tree Donor"});
     let response = await fetch("/charge", {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
@@ -31,6 +28,13 @@ class StripePaymentForm extends React.Component {
     if (response.ok) this.setState({ complete: true });
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.state.amount !== prevProps.amount) // Check if it's a new user, you can also use some unique property, like the ID  (this.props.user.id !== prevProps.user.id)
+    {
+      this.setState({amount: this.props.amount});
+    }
+  } 
+
 
   render() {
     if (this.state.complete) {
@@ -40,28 +44,7 @@ class StripePaymentForm extends React.Component {
     }
     else return (
       <div className="checkout">
-        <Typography
-          variant="h5"
-          align="center"
-          color="textSecondary"
-          paragraph>
-          Enter your payment information below to complete the purchase. Not working? Start the server 😉
-        </Typography>
-
-        <CardElement data-amount={this.state.amount} />
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <TextField
-            value={this.state.amount}
-            onInput={e => this.setState({ amount: e.target.value })}
-            id="outlined-basic"
-            label="Donation Amount"
-            variant="outlined" />
-        </Grid>
+        <CardElement />
         <Grid
           container
           direction="row"
