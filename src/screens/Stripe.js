@@ -68,7 +68,8 @@ const styles = theme => ({
   stripeElement: {
     display: 'block',
     margin: '10px 0 20px 0',
-    maxWidth: '500px',
+    width: '100%',
+    //maxWidth: '500px',
     padding: '10px 14px',
     fontSize: '1em',
     fontFamily: 'Roboto',
@@ -85,7 +86,7 @@ class Stripe extends React.Component {
     super(props);
     this.state = {
       complete: false,
-      amount: 0
+      amount: ''
     };
     this.submit = this.submit.bind(this);
   }
@@ -134,17 +135,18 @@ class Stripe extends React.Component {
                 <React.Fragment>
                   <React.Fragment>
                     <CardElement className={classes.stripeElement} />
-                    <label>
-Donation Amount
-                    <input className={classes.stripeElement} value={this.state.amount}
-                            onInput={e => this.setState({ amount: e.target.value })}
-                            id="outlined-basic"
-                            label="Donation Amount" />
-                            </label>
-
-                      <Button color="primary" className={classes.button} variant="contained" onClick={this.submit}>
-                        Donate
-                        </Button>
+                    <input
+                      className={classes.stripeElement}
+                      value={this.state.amount}
+                      placeholder="Amount"
+                      onInput={e => this.setState({ amount: e.target.value })} />
+                    <Button
+                      color="primary"
+                      className={classes.button}
+                      variant="contained"
+                      onClick={this.submit}>
+                      Donate
+                    </Button>
                   </React.Fragment>
                 </React.Fragment>
               </Paper>

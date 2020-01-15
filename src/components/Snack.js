@@ -1,5 +1,6 @@
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
+import Container from '@material-ui/core/Container';
 import MuiAlert from '@material-ui/lab/Alert';
 import { withStyles } from '@material-ui/styles';
 
@@ -43,17 +44,19 @@ class Snack extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Snackbar
-          open={this.state.open}
-          autoHideDuration={6000}
-          onClose={this.handleClose}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-          key={`${'bottom'},${'center'}`}>
-          <this.Alert onClose={this.handleClose} severity="success">
-            Payment Complete!
+        <Container maxWidth="sm">
+          <Snackbar
+            open={this.state.open}
+            autoHideDuration={6000}
+            onClose={this.handleClose}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            key={`${'bottom'},${'center'}`}>
+            <this.Alert onClose={this.handleClose} severity="success">
+              Payment Complete!
           </this.Alert>
-        </Snackbar>
-        <this.Alert severity="success">Payment Complete!</this.Alert>
+          </Snackbar>
+          <this.Alert severity="success">Payment Complete!</this.Alert>
+        </Container>
       </div>
     )
   }
