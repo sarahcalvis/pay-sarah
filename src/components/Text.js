@@ -41,8 +41,7 @@ class Text extends React.Component {
         {this.state.type === "card-heading" &&
           <Typography
             component="h1"
-            variant="h4"
-            align="center">
+            variant="h4">
             {this.state.text}
           </Typography>
         }

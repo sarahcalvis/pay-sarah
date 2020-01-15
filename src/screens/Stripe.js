@@ -63,9 +63,21 @@ const styles = theme => ({
     justifyContent: 'flex-end',
   },
   button: {
-    marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
+    margin: '10px 0 20px 0',
   },
+  stripeElement: {
+    display: 'block',
+    margin: '10px 0 20px 0',
+    maxWidth: '500px',
+    padding: '10px 14px',
+    fontSize: '1em',
+    fontFamily: 'Roboto',
+    boxShadow: 'rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px',
+    border: "0",
+    outline: '0',
+    borderRadius: '4px',
+    background: 'white',
+  }
 });
 
 class Stripe extends React.Component {
@@ -121,38 +133,18 @@ class Stripe extends React.Component {
                 <Text type="card-heading" text="Make a Donation" />
                 <React.Fragment>
                   <React.Fragment>
-                    <CardElement />
-                    <React.Fragment>
-                      <Grid container spacing={3}>
-                        <Grid item xs={12} md={6}>
-                          <TextField
-                            value={this.state.amount}
+                    <CardElement className={classes.stripeElement} />
+                    <label>
+Donation Amount
+                    <input className={classes.stripeElement} value={this.state.amount}
                             onInput={e => this.setState({ amount: e.target.value })}
                             id="outlined-basic"
                             label="Donation Amount" />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                          <TextField required id="cardNumber" label="Card number" fullWidth />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                          <TextField required id="expDate" label="Expiry date" fullWidth />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                          <TextField
-                            required
-                            id="cvv"
-                            label="CVV"
-                            helperText="Last three digits on signature strip"
-                            fullWidth
-                          />
-                        </Grid>
-                      </Grid>
-                    </React.Fragment>
-                    <div className={classes.buttons}>
+                            </label>
+
                       <Button color="primary" className={classes.button} variant="contained" onClick={this.submit}>
                         Donate
                         </Button>
-                    </div>
                   </React.Fragment>
                 </React.Fragment>
               </Paper>
