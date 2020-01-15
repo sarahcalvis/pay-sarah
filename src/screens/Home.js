@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Text from '../components/Text.js';
 import { withStyles } from '@material-ui/styles';
 
 const styles = theme => ({
@@ -24,14 +25,7 @@ class Home extends React.Component {
     return (
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            Pay Sarah
-          </Typography>
+          <Text type="heading" text="Pay Sarah" />
           <Typography
             variant="h5"
             align="center"
