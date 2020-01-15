@@ -9,9 +9,13 @@ import { withStyles } from '@material-ui/styles';
 import Text from '../components/Text.js';
 import Snack from '../components/Snack.js';
 import TextField from '@material-ui/core/TextField';
-import { CardElement, injectStripe } from 'react-stripe-elements';
+import {
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
+  injectStripe
+} from 'react-stripe-elements';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   root: {
@@ -41,13 +45,13 @@ class Stripe extends React.Component {
       complete: false,
       amount: 0
     };
-    this.submit=this.submit.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   async submit(ev) {
     var i = parseInt(this.state.amount) * 100;
     /// payment request
-    let { token } = await this.props.stripe.createToken({ name: "Giving Tree Donor"});
+    let { token } = await this.props.stripe.createToken({ name: "Giving Tree Donor" });
     let response = await fetch("/charge", {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
@@ -80,29 +84,25 @@ class Stripe extends React.Component {
           {this.state.complete ?
             <Snack /> :
             <div>
-            <Paper elevation={3} border={3}>
-              <Text type="small-heading" text="Make a Donation" />
-                <Grid container direction="row" justify="center"  alignItems="center">
-                  <TextField
-                    value={this.state.amount}
-                    onInput={e => this.setState({ amount: e.target.value })}
-                    id="outlined-basic"
-                    label="Donation Amount"
-                    variant="outlined" />
-                </Grid>
-                <CardElement />
-                <Grid container direction="row" justify="center" alignItems="center">
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    size="large"
-                    align="center"
-                    aria-label="outlined primary button group"
-                    type="submit"
-                    onClick={this.submit}>
-                    Purchase
-                  </Button>
-                </Grid>
+              <Paper elevation={3} border={3}
+              direction="column"
+  justify="flex-start"
+  alignItems="flex-start">
+                <Text type="card-heading" text="Make a Donation" />
+                <TextField
+                  value={this.state.amount}
+                  onInput={e => this.setState({ amount: e.target.value })}
+                  id="outlined-basic"
+                  label="Donation Amount" />
+                <Text type="card-labels" text="Card Number"/>
+                <CardNumberElement />
+                <Text type="card-labels" text="Expiration date" />
+                <CardExpiryElement />
+                <Text type="card-labels" text="CVC" />
+                <CardCvcElement />
+                <Button color="primary" variant="contained" size="large" type="submit" onClick={this.submit}>
+                  Donate
+                </Button>
               </Paper>
             </div>
           }
