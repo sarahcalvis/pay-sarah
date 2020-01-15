@@ -40,14 +40,14 @@ class Text extends React.Component {
         }
         {this.state.type === "card-heading" &&
           <Typography
-            variant="h6"
-            align="left"
-            gutterBottom>
+            component="h1"
+            variant="h4"
+            align="center">
             {this.state.text}
           </Typography>
         }
         {this.state.type === "card-labels" &&
-          <Typography 
+          <Typography
             color="textSecondary"
             variant="caption">
             {this.state.text}
@@ -62,7 +62,7 @@ class Text extends React.Component {
           </Typography>
         }
         {this.state.type === "small-subheading" &&
-          <Typography 
+          <Typography
             variant="subtitle1"
             align="center"
             color="textSecondary"
