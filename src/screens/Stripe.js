@@ -111,7 +111,7 @@ class Stripe extends React.Component {
     return (
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Text type="heading" text="Pay Sarah Via Stripe" />
+          <Text type="heading" text="Stripe" />
           <Typography
             variant="h5"
             align="center"

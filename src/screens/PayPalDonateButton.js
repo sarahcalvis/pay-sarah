@@ -25,7 +25,7 @@ class Home extends React.Component {
     return (
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Text type="heading" text="Pay Sarah Via PayPal Donate Button" />
+          <Text type="heading" text="PayPal Donate Button" />
           <Text type="subheading" text="Click the button to donate your desired amount of money to a PayPal account I made. This is not be a viable option for Giving Tree because we can neither see nor limit the amount the user chooses to donate. However, I need to look and see if PayPal has a button option that allows the site to specify the amount. If so, we can validate the amount and save it to the database before the user presses the button." />
           <Grid
             container
