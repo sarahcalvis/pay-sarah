@@ -10,12 +10,14 @@ import Text from '../components/Text.js';
 import Snack from '../components/Snack.js';
 import TextField from '@material-ui/core/TextField';
 import {
+  CardElement,
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
   injectStripe
 } from 'react-stripe-elements';
 import Button from '@material-ui/core/Button';
+import Checkout from '../components/Checkout.js';
 
 const styles = theme => ({
   root: {
@@ -50,6 +52,7 @@ class Stripe extends React.Component {
 
   async submit(ev) {
     var i = parseInt(this.state.amount) * 100;
+    console.log(i);
     /// payment request
     let { token } = await this.props.stripe.createToken({ name: "Giving Tree Donor" });
     let response = await fetch("/charge", {
@@ -85,21 +88,20 @@ class Stripe extends React.Component {
             <Snack /> :
             <div>
               <Paper elevation={3} border={3}
-              direction="column"
-  justify="flex-start"
-  alignItems="flex-start">
+              >
                 <Text type="card-heading" text="Make a Donation" />
                 <TextField
                   value={this.state.amount}
                   onInput={e => this.setState({ amount: e.target.value })}
                   id="outlined-basic"
                   label="Donation Amount" />
-                <Text type="card-labels" text="Card Number"/>
+                  <CardElement />
+                {/* <Text type="card-labels" text="Card Number"/>
                 <CardNumberElement />
                 <Text type="card-labels" text="Expiration date" />
                 <CardExpiryElement />
                 <Text type="card-labels" text="CVC" />
-                <CardCvcElement />
+                <CardCvcElement /> */}
                 <Button color="primary" variant="contained" size="large" type="submit" onClick={this.submit}>
                   Donate
                 </Button>
@@ -107,6 +109,7 @@ class Stripe extends React.Component {
             </div>
           }
         </Container>
+        <Checkout/>
       </div>
     );
   }

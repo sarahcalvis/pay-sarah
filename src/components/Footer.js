@@ -1,45 +1,51 @@
 import React from 'react';
-import Text from '../components/Text.js';
-import { withStyles } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
-const styles = theme => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 0),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-    position: 'relative',
-    textAlign: "center",
-    left: "0",
-    right: "0",
-    bottom: "0",
-    width: "100%",
-  },
-});
-
-class Home extends React.Component {
-  render() {
-    const { classes } = this.props;
-    return (
-      <footer className={classes.footer}>
-        <Text type="small-heading" text="Not-Yet-Sticky Footer" />
-        <Text type="small-subheading" text="Disclaimer: I have not tried some of this because I am terrified they will slap me with a bunch of fees." />
-      </footer>  
-    );
-  }
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Pay Sarah
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
-export default withStyles(styles)(Home);
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+  },
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: 'auto',
+    backgroundColor:
+      theme.palette.type === 'dark' ? theme.palette.grey[800] : theme.palette.grey[200],
+  },
+}));
+
+export default function Footer() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <footer className={classes.footer}>
+        <Container maxWidth="sm">
+          <Typography variant="body1">Please don't actually give money via the PayPal donate button; it's not a sandbox and I do not want to run into unexpected fees.</Typography>
+          <Copyright />
+        </Container>
+      </footer>
+    </div>
+  );
+}
