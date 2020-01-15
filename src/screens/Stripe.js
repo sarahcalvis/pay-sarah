@@ -59,9 +59,9 @@ class Stripe extends React.Component {
   }
 
   render() {
-    //const { classes } = this.props;
+    const { classes } = this.props;
     return (
-      <div /*className={classes.heroContent}*/>
+      <div className={classes.heroContent}>
         <Container maxWidth="sm">
           <Text type="heading" text="Pay Sarah Via Stripe" />
           <Typography
@@ -112,4 +112,4 @@ class Stripe extends React.Component {
   }
 }
 
-export default injectStripe(Stripe);
+export default injectStripe(withStyles(styles)(Stripe));
