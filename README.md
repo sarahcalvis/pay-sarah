@@ -2,11 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Making a Stripe Payment
 
-Run
+Run in two different terminal windows
 ### `npm start`
 and
 ### `node server`
-in two different project directories
+in the project directory
 
 ## Available Scripts
 
