@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import Text from '../components/Text.js';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -25,21 +25,8 @@ class Home extends React.Component {
     return (
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            Pay Sarah Via PayPal Donate Button
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            Click the button to donate your desired amount of money to a PayPal account I made. This may not be a viable option for Giving Tree because we can neither see nor limit the amount the user chooses to donate. However, I need to look and see if PayPal has a button option that allows the site to specify the amount. If so, we can validate the amount and save it to the database before the user presses the button.
-          </Typography>
+          <Text type="heading" text="Pay Sarah Via PayPal Donate Button" />
+          <Text type="subheading" text="Click the button to donate your desired amount of money to a PayPal account I made. This is not be a viable option for Giving Tree because we can neither see nor limit the amount the user chooses to donate. However, I need to look and see if PayPal has a button option that allows the site to specify the amount. If so, we can validate the amount and save it to the database before the user presses the button." />
           <Grid
             container
             direction="row"

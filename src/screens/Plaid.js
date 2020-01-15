@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import Text from '../components/Text.js';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/styles';
@@ -41,21 +41,8 @@ class Plaid extends React.Component {
     return (
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            Pay Sarah Via Plaid
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            This is useless ignore it. Plaid Link connects to an actual bank account. We can use it to do direct bank withdrawals. I think it is common to integrate Plaid with Stripe.
-          </Typography>
+          <Text type="heading" text="Plaid" />
+          <Text type="subheading" text="This is useless ignore it. Plaid Link connects to an actual bank account. We can use it to do direct bank withdrawals. I think it is common to integrate Plaid with Stripe." />
           <Grid
             container
             direction="row"
@@ -71,13 +58,7 @@ class Plaid extends React.Component {
               onSuccess={this.handleOnSuccess}>
               Open Link and connect your bank!
             </PlaidLink>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph>
-              We can add handlers to the above Plaid Link such that once the user is connected to a bank, we can actually make the donation
-            </Typography>
+            <Text type="subheading" text="We can add handlers to the above Plaid Link such that once the user is connected to a bank, we can actually make the donation but I think that requires a third party. Overall, Plaid is just overkill. Plus my church has it and it doesn't work." />
           </Grid>
         </Container>
       </div>

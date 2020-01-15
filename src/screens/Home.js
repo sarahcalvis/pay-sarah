@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Text from '../components/Text.js';
 import { withStyles } from '@material-ui/styles';
@@ -26,58 +25,13 @@ class Home extends React.Component {
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
           <Text type="heading" text="Pay Sarah" />
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            Sarah's payment processing experiment.
-          </Typography>
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            The Conclusion (At the top because it's important)
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            Stripe works! I'm leaving my PayPal and Plaid fun in there for posterity.
-          </Typography>
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            The fundamental challenge
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            We need to not just accept payments, but also 1. allow CFs to input payment information. 2. potentially create multiple accounts for one CF. 3. track and manage the size of the payments.
-          </Typography>
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            What I am learning about the solution to said challenge
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            We should probably take the amount the user wants to donate BEFORE beginning the payment processing routine so we can validate it ourselves and store the donation amount to the database upon transaction completion. I think this can be done pretty easily.
-          </Typography>
+          <Text type="subheading" text="Sarah's payment processing experiment." />
+          <Text type="heading" text="The Conclusion (At the top because it's important)" />
+          <Text type="subheading" text="Stripe works! I'm leaving my PayPal and Plaid fun in there for posterity." />
+          <Text type="heading" text="The fundamental challenge" />
+          <Text type="subheading" text="We need to not just accept payments, but also 1. allow CFs to input payment information. 2. potentially create multiple accounts for one CF. 3. track and manage the size of the payments." />       
+          <Text type="heading" text="What I am learning about the solution to said challenge" />
+          <Text type="subheading" text="We should probably take the amount the user wants to donate BEFORE beginning the payment processing routine so we can validate it ourselves and store the donation amount to the database upon transaction completion. I think this can be done pretty easily."/>
         </Container>
       </div>
     );

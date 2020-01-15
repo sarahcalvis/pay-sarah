@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import Text from '../components/Text.js';
 import { withStyles } from '@material-ui/styles';
 
 const styles = theme => ({
@@ -35,12 +35,8 @@ class Home extends React.Component {
     const { classes } = this.props;
     return (
       <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Not-Yet-Sticky Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Disclaimer: I have not tried this because I am terrified they will slap me with a bunch of fees.
-        </Typography>
+        <Text type="small-heading" text="Not-Yet-Sticky Footer" />
+        <Text type="small-subheading" text="Disclaimer: I have not tried some of this because I am terrified they will slap me with a bunch of fees." />
       </footer>  
     );
   }

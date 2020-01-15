@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/styles';
+import Text from '../components/Text.js';
 import Snack from '../components/Snack.js';
 import TextField from '@material-ui/core/TextField';
 import { CardElement, injectStripe } from 'react-stripe-elements';
@@ -62,14 +63,7 @@ class Stripe extends React.Component {
     return (
       <div /*className={classes.heroContent}*/>
         <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom>
-            Pay Sarah Via Stripe
-          </Typography>
+          <Text type="heading" text="Pay Sarah Via Stripe" />
           <Typography
             variant="h5"
             align="center"
@@ -81,62 +75,34 @@ class Stripe extends React.Component {
             </Link>
             to try this out
           </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            please how do I make spaces between the link and the words help me
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            Enter your payment information below to complete the purchase. Not working? Start the server 😉
-          </Typography>
+          <Text type="subheading" text="please how do I make spaces between the link and the words help me" />
+          <Text type="subheading" text="Enter your payment information below to complete the purchase. Not working? Start the server 😉" />
           {this.state.complete ?
             <Snack /> :
             <div>
             <Paper elevation={3} border={3}>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textPrimary"
-              gutterBottom>
-              Make a Donation
-            </Typography>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <TextField
-                  value={this.state.amount}
-                  onInput={e => this.setState({ amount: e.target.value })}
-                  id="outlined-basic"
-                  label="Donation Amount"
-                  variant="outlined" />
-              </Grid>
-              <CardElement />
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Button
-                  color="primary"
-                  variant="contained"
-                  size="large"
-                  align="center"
-                  aria-label="outlined primary button group"
-                  type="submit"
-                  onClick={this.submit}>
-                  Purchase
-            </Button>
-              </Grid>
+              <Text type="small-heading" text="Make a Donation" />
+                <Grid container direction="row" justify="center"  alignItems="center">
+                  <TextField
+                    value={this.state.amount}
+                    onInput={e => this.setState({ amount: e.target.value })}
+                    id="outlined-basic"
+                    label="Donation Amount"
+                    variant="outlined" />
+                </Grid>
+                <CardElement />
+                <Grid container direction="row" justify="center" alignItems="center">
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                    align="center"
+                    aria-label="outlined primary button group"
+                    type="submit"
+                    onClick={this.submit}>
+                    Purchase
+                  </Button>
+                </Grid>
               </Paper>
             </div>
           }

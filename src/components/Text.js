@@ -35,14 +35,14 @@ class Text extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.text !== prevProps.text) this.setState({text: this.props.text});
-  } 
+    if (this.props.text !== prevProps.text) this.setState({ text: this.props.text });
+  }
 
   render() {
     const { classes } = this.props;
     return (
       <div>
-      {this.state.type==="heading" &&
+        {this.state.type === "heading" &&
           <Typography
             component="h1"
             variant="h2"
@@ -51,8 +51,8 @@ class Text extends React.Component {
             gutterBottom>
             {this.state.text}
           </Typography>
-      }
-      {this.state.type==="subheading" &&
+        }
+        {this.state.type === "subheading" &&
           <Typography
             variant="h5"
             align="center"
@@ -60,10 +60,27 @@ class Text extends React.Component {
             paragraph>
             {this.state.text}
           </Typography>
-      }
+        }
+        {this.state.type === "small-heading" &&
+          <Typography
+            variant="h6"
+            align="center"
+            gutterBottom>
+            {this.state.text}
+          </Typography>
+        }
+        {this.state.type === "small-subheading" &&
+          <Typography 
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            component="p">
+            {this.state.text}
+          </Typography>
+        }
       </div>
     );
   }
 }
 
-export default Text;
+export default withStyles(styles)(Text);
