@@ -4,20 +4,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/styles';
-
-const styles = theme => ({
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 0),
-    position: 'relative',
-    margin: '0',
-    height: '100%',
-    paddingBottom: "60px",
-  },
-  heroButtons: {
-    marginTop: theme.spacing(8),
-  },
-});
+import styles from '../styles.js';
 
 class Home extends React.Component {
   render() {

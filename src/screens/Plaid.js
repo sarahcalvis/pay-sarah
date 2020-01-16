@@ -4,21 +4,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/styles';
 import PlaidLink from 'react-plaid-link'
-
-const styles = theme => ({
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 0),
-    position: 'relative',
-    margin: '0',
-    //padding-bottom: 6rem;
-    height: '100%',
-    paddingBottom: "60px",
-  },
-  heroButtons: {
-    marginTop: theme.spacing(8),
-  },
-});
+import styles from '../styles.js';
 
 class Plaid extends React.Component {
   constructor() {

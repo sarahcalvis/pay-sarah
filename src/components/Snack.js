@@ -3,15 +3,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Container from '@material-ui/core/Container';
 import MuiAlert from '@material-ui/lab/Alert';
 import { withStyles } from '@material-ui/styles';
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-});
+import styles from '../styles.js';
 class Snack extends React.Component {
   constructor(props) {
     super(props);
