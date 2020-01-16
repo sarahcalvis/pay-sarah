@@ -2,18 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import styles from '../styles.js';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    margin: theme.spacing(0, 0, 0),
-  },
-  appBar: {
-    position: 'sticky',
-    flexWrap: 'wrap',
-
-  },
-}));
-
+const useStyles = makeStyles(styles);
 
 export default function SimpleTabs(props) {
   const classes = useStyles();

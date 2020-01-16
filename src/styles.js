@@ -1,5 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles';
-
 const styles = theme => ({
   root: {
     '& > *': {
@@ -62,7 +60,29 @@ const styles = theme => ({
     outline: '0',
     borderRadius: '4px',
     background: 'white',
-  }
+  },
+  navRoot: {
+    margin: theme.spacing(0, 0, 0),
+  },
+  appBar: {
+    position: 'sticky',
+    flexWrap: 'wrap',
+  },
+  footerRoot: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+  },
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: 'auto',
+    backgroundColor:
+      theme.palette.type === 'dark' ? theme.palette.grey[800] : theme.palette.grey[200],
+  },
 });
 
 export default styles;
