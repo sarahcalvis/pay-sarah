@@ -9,11 +9,12 @@ const useStyles = makeStyles(styles);
 export default function SimpleTabs(props) {
   const classes = useStyles();
   
-  var pages = ['home', 'paypal-donate-button', 'stripe', 'plaid'];
-  var page = window.location.href
-  var val = 'home';
-  for (var i = 0; i < pages.length; i++) {
-    if (page.includes(pages[i])) { val=pages[i]; }
+  // This is a pretty jank way to determine the initial page. Maybe I should be doing it using local storage?
+  const pages = ['home', 'paypal-donate-button', 'stripe', 'plaid']; //list options for current page
+  const page = window.location.href; //get URL
+  let val = 'home'; //default url is 'home'
+  for (let p of pages) { //iterate through possible pages
+    if (page.includes(p)) val=p; //if the URL contains the page name, set the state to that page
   }
 
   const [value, setValue] = React.useState(val);
