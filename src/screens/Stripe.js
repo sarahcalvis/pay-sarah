@@ -46,18 +46,6 @@ class Stripe extends React.Component {
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
           <Text type="heading" text="Stripe" />
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph>
-            Refer to
-            <Link href="https://stripe.com/docs/testing" >
-              Stripe Testing Information
-            </Link>
-            to try this out
-          </Typography>
-          <Text type="subheading" text="please how do I make spaces between the link and the words help me" />
           <Text type="subheading" text="Enter your payment information below to complete the purchase. Not working? Start the server 😉" />
         </Container>
         {this.state.complete ?
@@ -66,6 +54,12 @@ class Stripe extends React.Component {
             <main className={classes.layout}>
               <Paper elevation={3} className={classes.paper}>
                 <Text type="card-heading" text="Make a Donation" />
+                <Typography
+                  component="h1"
+                  color="textSecondary"
+                  variant="subtitle1">
+                  Refer to <Link color="secondary" href="https://stripe.com/docs/testing" > Stripe testing information</Link> to try this out
+                </Typography>
                 <React.Fragment>
                   <React.Fragment>
                     <CardElement className={classes.stripeElement} />

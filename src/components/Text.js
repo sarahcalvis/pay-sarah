@@ -45,6 +45,14 @@ class Text extends React.Component {
             {this.state.text}
           </Typography>
         }
+        {this.state.type === "card-subheading" &&
+          <Typography
+            component="h1"
+            color="textSecondary"
+            variant="h5">
+            {this.state.text}
+          </Typography>
+        }
         {this.state.type === "card-labels" &&
           <Typography
             color="textSecondary"
