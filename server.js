@@ -8,12 +8,15 @@ app.use(require("body-parser").text());
 
 app.post("/charge", async (req, res) => {
   console.log(req.body);
+  let source = req.body.split(' amount: ')[0];
+  let amount = req.body.split(' amount: ')[1].split(' description: ')[0];
+  let description = req.body.split(' amount: ')[1].split(' description: ')[1];
   try {
     let {status} = await stripe.charges.create({
-      amount:  req.body.split(' amount: ')[1],
+      amount:  amount,
       currency: "usd",
-      description: "An example charge",
-      source: req.body.split(' amount: ')[0]
+      description: description,
+      source: source,
     });
 
     res.json({status});

@@ -22,6 +22,7 @@ function Stripe(props) {
 
   const [complete, setComplete] = React.useState(false);
   const [amount, setAmount] = React.useState('');
+  const [description] = React.useState('sample description- replace with grant name later')
 
   async function submit(ev) {
     let i = parseInt(amount) * 100;
@@ -31,7 +32,7 @@ function Stripe(props) {
     let response = await fetch("/charge", {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
-      body: token.id + ' amount: ' + i,
+      body: token.id + ' amount: ' + i + ' description: ' + description,
     });
 
     if (response.ok) { console.log(response) }
